@@ -1,0 +1,57 @@
+
+1、查询所有功能：
+	
+	index.jsp--->QueryAllServlet.java（--->DoctorServiceImpl--->DoctorDaoImpl）
+	转发--->list.jsp
+	
+2、新增功能：
+
+	add.jsp(普通按钮，触发js函数，发送ajax请求)--->AddServlet.java（--->DoctorServiceImpl--->DoctorDaoImpl）
+	成功--->QueryAllServlet
+	失败--->add.jsp
+	
+3、修改功能第一步：(信息回显)
+	
+	list.jsp(点击修改按钮,把要修改的id传过去)--->update.jsp(接收要修改的id)--->QueryOneServlet.java（--->DoctorServiceImpl--->DoctorDaoImpl）
+	--->update.jsp的回调函数--->实现了回显
+	
+4、修改功能第二步：
+
+	update.jsp(点击更新按钮)--->UpdateServlet.java（--->DoctorServiceImpl--->DoctorDaoImpl）
+	成功--->QueryAllServlet
+	失败--->add.jsp
+	
+5、批量删除功能：(delete from t_doctor where id in (1,3)     )
+
+	list.jsp(点击批量删除按钮)--->DeleteServlet.java（--->DoctorServiceImpl--->DoctorDaoImpl）
+	成功--->QueryAllServlet	if(obj>0)	
+	失败--->add.jsp
+	
+两张表注意事项：
+1).mysql数据表改造为医生表和科室表     did字段
+
+2).查询所有功能需要改造：新增一个实体类All.java，sql语句需要修改，list.jsp需要修改
+
+3).新增功能需要改造：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
